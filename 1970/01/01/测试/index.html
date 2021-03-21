@@ -1,0 +1,205 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>测试 | Hexo</title><meta name="author" content="小艾同学"><meta name="copyright" content="小艾同学"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="1import torch  Chapter2  马尔可夫决策过程（MDP）1 Keywords 马尔可夫性质(Markov Property): 如果某一个过程未来的转移跟过去是无关，只由现在的状态决定，那么其满足马尔可夫性质。换句话说，一个状态的下一个状态只取决于它当前状态，而跟它当前状态之前的状态都没有关系。 马尔可夫链(Markov Chain): 概率论和数理统计中具有马尔可夫性质（Ma">
+<meta property="og:type" content="article">
+<meta property="og:title" content="测试">
+<meta property="og:url" content="http://example.com/1970/01/01/%E6%B5%8B%E8%AF%95/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1import torch  Chapter2  马尔可夫决策过程（MDP）1 Keywords 马尔可夫性质(Markov Property): 如果某一个过程未来的转移跟过去是无关，只由现在的状态决定，那么其满足马尔可夫性质。换句话说，一个状态的下一个状态只取决于它当前状态，而跟它当前状态之前的状态都没有关系。 马尔可夫链(Markov Chain): 概率论和数理统计中具有马尔可夫性质（Ma">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:published_time" content="1970-01-01T00:00:02.021Z">
+<meta property="article:modified_time" content="2021-03-21T10:21:10.176Z">
+<meta property="article:author" content="小艾同学">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/1970/01/01/%E6%B5%8B%E8%AF%95/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-03-21 18:21:10'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">2</div></a></div></div></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Hexo</a></span><div id="menus"><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">测试</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="1970-01-01T00:00:02.021Z" title="Created 1970-01-01 08:00:02">1970-01-01</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2021-03-21T10:21:10.176Z" title="Updated 2021-03-21 18:21:10">2021-03-21</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="测试"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br></pre></td></tr></table></figure>
+
+<h1 id="Chapter2-马尔可夫决策过程（MDP）"><a href="#Chapter2-马尔可夫决策过程（MDP）" class="headerlink" title="Chapter2  马尔可夫决策过程（MDP）"></a>Chapter2  马尔可夫决策过程（MDP）</h1><h2 id="1-Keywords"><a href="#1-Keywords" class="headerlink" title="1 Keywords"></a>1 Keywords</h2><ul>
+<li><strong>马尔可夫性质(Markov Property):</strong> 如果某一个过程未来的转移跟过去是无关，只由现在的状态决定，那么其满足马尔可夫性质。换句话说，一个状态的下一个状态只取决于它当前状态，而跟它当前状态之前的状态都没有关系。</li>
+<li><strong>马尔可夫链(Markov Chain):</strong> 概率论和数理统计中具有马尔可夫性质（Markov property）且存在于离散的指数集（index set）和状态空间（state space）内的随机过程（stochastic process）。</li>
+<li><strong>状态转移矩阵(State Transition Matrix):</strong> 状态转移矩阵类似于一个 conditional probability，当我们知道当前我们在 $s_t$ 这个状态过后，到达下面所有状态的一个概念，它每一行其实描述了是从一个节点到达所有其它节点的概率。</li>
+<li><strong>马尔可夫奖励过程(Markov Reward Process, MRP)：</strong> 即马尔可夫链再加上了一个奖励函数。在 MRP之中，转移矩阵跟它的这个状态都是跟马尔可夫链一样的，多了一个奖励函数(reward function)。奖励函数是一个期望，它说当你到达某一个状态的时候，可以获得多大的奖励。</li>
+<li><strong>horizon:</strong> 定义了同一个 episode 或者是整个一个轨迹的长度，它是由有限个步数决定的。</li>
+<li><strong>return:</strong> 把奖励进行折扣(discounted)，然后获得的对应的收益。</li>
+<li><strong>Bellman Equation（贝尔曼等式）:</strong> 定义了当前状态与未来状态的迭代关系，表示当前状态的值函数可以通过下个状态的值函数来计算。Bellman Equation 因其提出者、动态规划创始人 Richard Bellman 而得名 ，同时也被叫作“动态规划方程”。$V(s)=R(S)+ \gamma \sum_{s’ \in S}P(s’|s)V(s’)$ ，特别地，矩阵形式：$V=R+\gamma PV$。</li>
+<li><strong>Monte Carlo Algorithm（蒙特卡罗方法）：</strong> 可用来计算价值函数的值。通俗的讲，我们当得到一个MRP过后，我们可以从某一个状态开始，然后让它让把这个小船放进去，让它随波逐流，这样就会产生一个轨迹。产生了一个轨迹过后，就会得到一个奖励，那么就直接把它的 Discounted 的奖励 $g$ 直接算出来。算出来过后就可以把它积累起来，当积累到一定的轨迹数量过后，然后直接除以这个轨迹，然后就会得到它的这个价值。</li>
+<li><strong>Iterative Algorithm（动态规划方法）：</strong> 可用来计算价值函数的值。通过一直迭代对应的Bellman Equation，最后使其收敛。当这个最后更新的状态跟你上一个状态变化并不大的时候，这个更新就可以停止。</li>
+<li><strong>Q函数 (action-value function)：</strong> 其定义的是某一个状态某一个行为，对应的它有可能得到的 return 的一个期望（over policy function）。</li>
+<li><strong>MDP中的prediction（即policy evaluation问题）：</strong> 给定一个 MDP 以及一个 policy $\pi$ ，去计算它的 value function，即每个状态它的价值函数是多少。其可以通过动态规划方法（Iterative Algorithm）解决。</li>
+<li><strong>MDP中的control问题：</strong> 寻找一个最佳的一个策略，它的 input 就是MDP，输出是通过去寻找它的最佳策略，然后同时输出它的最佳价值函数(optimal value function)以及它的这个最佳策略(optimal policy)。其可以通过动态规划方法（Iterative Algorithm）解决。</li>
+<li><strong>最佳价值函数(Optimal Value Function)：</strong> 我们去搜索一种 policy $\pi$ ，然后我们会得到每个状态它的状态值最大的一个情况，$v^*$ 就是到达每一个状态，它的值的极大化情况。在这种极大化情况上面，我们得到的策略就可以说它是最佳策略(optimal policy)。optimal policy 使得每个状态，它的状态函数都取得最大值。所以当我们说某一个 MDP 的环境被解了过后，就是说我们可以得到一个 optimal value function，然后我们就说它被解了。</li>
+</ul>
+<h2 id="2-Questions"><a href="#2-Questions" class="headerlink" title="2 Questions"></a>2 Questions</h2><ul>
+<li><p>为什么在马尔可夫奖励过程（MRP）中需要有<strong>discount factor</strong>?</p>
+<p>答：</p>
+<ol>
+<li>首先，是有些马尔可夫过程是<strong>带环</strong>的，它并没有终结，然后我们想<strong>避免这个无穷的奖励</strong>；</li>
+<li>另外，我们是想把这个<strong>不确定性</strong>也表示出来，希望<strong>尽可能快</strong>地得到奖励，而不是在未来某一个点得到奖励；</li>
+<li>接上面一点，如果这个奖励是它是有实际价值的了，我们可能是更希望立刻就得到奖励，而不是我们后面再得到奖励。</li>
+<li>还有在有些时候，这个系数也可以把它设为 0。比如说，当我们设为 0 过后，然后我们就只关注了它当前的奖励。我们也可以把它设为 1，设为 1 的话就是对未来并没有折扣，未来获得的奖励跟我们当前获得的奖励是一样的。</li>
+</ol>
+<p>所以，这个系数其实是应该可以作为强化学习 agent 的一个 hyperparameter 来进行调整，然后就会得到不同行为的 agent。</p>
+</li>
+<li><p>为什么矩阵形式的Bellman Equation的解析解比较难解？</p>
+<p>答：通过矩阵求逆的过程，就可以把这个 V 的这个价值的解析解直接求出来。但是一个问题是这个矩阵求逆的过程的复杂度是 $O(N^3)$。所以就当我们状态非常多的时候，比如说从我们现在十个状态到一千个状态，到一百万个状态。那么当我们有一百万个状态的时候，这个转移矩阵就会是个一百万乘以一百万的一个矩阵。这样一个大矩阵的话求逆是非常困难的，所以这种通过解析解去解，只能对于很小量的MRP。</p>
+</li>
+<li><p>计算贝尔曼等式（Bellman Equation）的常见方法以及区别？</p>
+<p>答：</p>
+<ol>
+<li><strong>Monte Carlo Algorithm（蒙特卡罗方法）：</strong> 可用来计算价值函数的值。通俗的讲，我们当得到一个MRP过后，我们可以从某一个状态开始，然后让它让把这个小船放进去，让它随波逐流，这样就会产生一个轨迹。产生了一个轨迹过后，就会得到一个奖励，那么就直接把它的 Discounted 的奖励 $g$ 直接算出来。算出来过后就可以把它积累起来，当积累到一定的轨迹数量过后，然后直接除以这个轨迹，然后就会得到它的这个价值。</li>
+<li><strong>Iterative Algorithm（动态规划方法）：</strong> 可用来计算价值函数的值。通过一直迭代对应的Bellman Equation，最后使其收敛。当这个最后更新的状态跟你上一个状态变化并不大的时候，通常是小于一个阈值 $\gamma$ ，这个更新就可以停止。</li>
+<li><strong>以上两者的结合方法：</strong> 另外我们也可以通过 Temporal-Difference Learning 的那个办法。这个 <code>Temporal-Difference Learning</code> 叫 <code>TD Leanring</code>，就是动态规划和蒙特卡罗的一个结合。</li>
+</ol>
+</li>
+<li><p>马尔可夫奖励过程（MRP）与马尔可夫决策过程 （MDP）的区别？</p>
+<p>答：相对于 MRP，马尔可夫决策过程(Markov Decision Process)多了一个 decision，其它的定义跟 MRP 都是类似的。这里我们多了一个决策，多了一个 action ，那么这个状态转移也多了一个 condition，就是采取某一种行为，然后你未来的状态会不同。它不仅是依赖于你当前的状态，也依赖于在当前状态你这个 agent 它采取的这个行为会决定它未来的这个状态走向。对于这个价值函数，它也是多了一个条件，多了一个你当前的这个行为，就是说你当前的状态以及你采取的行为会决定你在当前可能得到的奖励多少。</p>
+<p>另外，两者之间是由转换关系的。具体来说，已知一个 MDP 以及一个 policy $\pi$ 的时候，我们可以把 MDP 转换成MRP。在 MDP 里面，转移函数 $P(s’|s,a)$  是基于它当前状态以及它当前的 action，因为我们现在已知它 policy function，就是说在每一个状态，我们知道它可能采取的行为的概率，那么就可以直接把这个 action 进行加和，那我们就可以得到对于 MRP 的一个转移，这里就没有 action。同样地，对于奖励，我们也可以把 action 拿掉，这样就会得到一个类似于 MRP 的奖励。</p>
+</li>
+<li><p>MDP 里面的状态转移跟 MRP 以及 MP 的结构或者计算方面的差异？</p>
+<p>答：</p>
+<ul>
+<li>对于之前的马尔可夫链的过程，它的转移是直接就决定，就从你当前是 s，那么就直接通过这个转移概率就直接决定了你下一个状态会是什么。</li>
+<li>但是对于 MDP，它的中间多了一层这个行为 a ，就是说在你当前这个状态的时候，你首先要决定的是采取某一种行为。然后因为你有一定的不确定性，当你当前状态决定你当前采取的行为过后，你到未来的状态其实也是一个概率分布。所以你采取行为以及你决定，然后你可能有有多大的概率到达某一个未来状态，以及另外有多大概率到达另外一个状态。所以在这个当前状态跟未来状态转移过程中这里多了一层决策性，这是MDP跟之前的马尔可夫过程很不同的一个地方。在马尔科夫决策过程中，行为是由 agent 决定，所以多了一个 component，agent 会采取行为来决定未来的状态转移。</li>
+</ul>
+</li>
+<li><p>我们如何寻找最佳的policy，方法有哪些？</p>
+<p>答：本质来说，当我们取得最佳的价值函数过后，我们可以通过对这个 Q 函数进行极大化，然后得到最佳的价值。然后，我们直接在这个Q函数上面取一个让这个action最大化的值，然后我们就可以直接提取出它的最佳的policy。</p>
+<p>具体方法：</p>
+<ol>
+<li><strong>穷举法（一般不使用）：</strong>假设我们有有限多个状态、有限多个行为可能性，那么每个状态我们可以采取这个 A 种行为的策略，那么总共就是 $|A|^{|S|}$ 个可能的 policy。我们可以把这个穷举一遍，然后算出每种策略的 value function，然后对比一下可以得到最佳策略。但是效率极低。</li>
+<li><strong>Policy iteration：</strong> 一种迭代方法，有两部分组成，下面两个步骤一直在迭代进行，最终收敛：(有些类似于ML中EM算法（期望-最大化算法）)<ul>
+<li>第一个步骤是 <strong>policy evaluation</strong> ，即当前我们在优化这个 policy $\pi$ ，所以在优化过程中得到一个最新的这个 policy 。</li>
+<li>第二个步骤是 <strong>policy improvement</strong> ，即取得价值函数后，进一步推算出它的 Q 函数。得到 Q 函数过后，那我们就直接去取它的极大化。</li>
+</ul>
+</li>
+<li><strong>Value iteration:</strong> 我们一直去迭代 Bellman Optimality Equation，到了最后，它能逐渐趋向于最佳的策略，这是 value iteration 算法的精髓，就是我们去为了得到最佳的 $v^*$ ，对于每个状态它的 $v^*$ 这个值，我们直接把这个 Bellman Optimality Equation 进行迭代，迭代了很多次之后它就会收敛到最佳的policy以及其对应的状态，这里面是没有policy function的。</li>
+</ol>
+</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">小艾同学</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://example.com/1970/01/01/%E6%B5%8B%E8%AF%95/">http://example.com/1970/01/01/%E6%B5%8B%E8%AF%95/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-full"><a href="/2021/03/21/hello-world/"><img class="prev-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">Hello World</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">小艾同学</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">2</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Chapter2-%E9%A9%AC%E5%B0%94%E5%8F%AF%E5%A4%AB%E5%86%B3%E7%AD%96%E8%BF%87%E7%A8%8B%EF%BC%88MDP%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">Chapter2  马尔可夫决策过程（MDP）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Keywords"><span class="toc-number">1.1.</span> <span class="toc-text">1 Keywords</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Questions"><span class="toc-number">1.2.</span> <span class="toc-text">2 Questions</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/03/21/hello-world/" title="Hello World"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hello World"/></a><div class="content"><a class="title" href="/2021/03/21/hello-world/" title="Hello World">Hello World</a><time datetime="2021-03-21T13:22:25.138Z" title="Created 2021-03-21 21:22:25">2021-03-21</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/1970/01/01/%E6%B5%8B%E8%AF%95/" title="测试">测试</a><time datetime="1970-01-01T00:00:02.021Z" title="Created 1970-01-01 08:00:02">1970-01-01</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By 小艾同学</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
